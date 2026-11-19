@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Comments</h2>
+<form method="POST" action="/comments">
+  <label>Name</label>
+  <input type="text" name="author">
+  <label>Comment</label>
+  <textarea name="content"></textarea>
+  <button type="submit">Post</button>
+</form>
+{% for c in comments %}
+<div class="comment"><b>{{ c[0] }}</b>: {{ c[1] | safe }}</div>
+{% endfor %}
+{% endblock %}
